@@ -1,0 +1,26 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a routerLink="/" class="navbar-logo">
+      <div class="logo-text">
+        <span class="logo-main">Tienda</span>
+        <span class="logo-sub">de Té</span>
+      </div>
+    </a>
+    
+    <button class="navbar-toggle" (click)="toggleMenu()" aria-label="Toggle navigation menu">
+      <span class="navbar-toggle-icon"></span>
+    </button>
+
+    <div class="navbar-menu" [class.active]="isMenuOpen">
+      @for (item of menuItems; track item.path) {
+        <a 
+          class="navbar-item" 
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          {{ item.label }}
+        </a>
+      }
+    </div>
+  </div>
+</nav>
