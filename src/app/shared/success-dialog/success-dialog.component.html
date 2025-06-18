@@ -1,0 +1,13 @@
+<div class="success-dialog">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+  </div>
+  <div mat-dialog-content class="dialog-content">
+    <div class="success-icon">✓</div>
+    <p>{{ data.message }}</p>
+    <p class="subtitle">{{ data.subtitle }}</p>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button color="primary" (click)="close()">Cerrar</button>
+  </div>
+</div> 
