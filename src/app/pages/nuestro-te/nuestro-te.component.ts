@@ -10,4 +10,14 @@ import { CommonModule } from '@angular/common';
 })
 export class NuestroTeComponent {
   title = 'Nuestro Té';
+  
+  hoveredIndex: number | null = null;
+
+  onMouseEnter(index: number) {
+    this.hoveredIndex = index;
+  }
+
+  onMouseLeave() {
+    this.hoveredIndex = null;
+  }
 }
