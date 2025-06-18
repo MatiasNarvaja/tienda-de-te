@@ -12,3 +12,15 @@ main {
   width: 100%;
   box-sizing: border-box;
 }
+
+router-outlet {
+  flex: 1;
+  display: block;
+}
+
+// Asegurar que el contenido del router tenga espacio adecuado
+router-outlet + * {
+  flex: 1;
+  display: block;
+  min-height: calc(100vh - 120px); // Altura mínima considerando navbar y footer
+}
