@@ -1,0 +1,82 @@
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo y descripción -->
+    <div class="footer-brand">
+      <a routerLink="/" class="footer-logo">
+        <div class="logo-text">
+          <span class="logo-main">Tienda</span>
+          <span class="logo-sub">de Té</span>
+        </div>
+      </a>
+      <p class="footer-description">
+        Descubrí nuestras variedades de té, infusiones y accesorios. 
+        ¡Sentite como en tu casa de té favorita!
+      </p>
+    </div>
+
+    <!-- Enlaces de navegación -->
+    <div class="footer-links">
+      <h3>Navegación</h3>
+      <div class="links-grid">
+        @for (link of footerLinks; track link.path) {
+          <a 
+            class="footer-link" 
+            [routerLink]="link.path"
+            routerLinkActive="active">
+            {{ link.label }}
+          </a>
+        }
+      </div>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="footer-contact">
+      <h3>Desarrolladores</h3>
+      <div class="contact-info">
+        <a 
+          href="https://www.linkedin.com/in/leonardomorganti/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="linkedin-link">
+          <span class="linkedin-icon">💼</span>
+          <span>Leonardo Morganti</span>
+        </a>
+        <a 
+          href="https://www.linkedin.com/in/matias-narvaja/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="linkedin-link">
+          <span class="linkedin-icon">💼</span>
+          <span>Matías Narvaja</span>
+        </a>
+        <p>📍 Buenos Aires, Argentina</p>
+      </div>
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="footer-social">
+      <h3>Seguinos</h3>
+      <div class="social-links">
+        @for (social of socialLinks; track social.label) {
+          <a 
+            class="social-link" 
+            [href]="social.url" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            [title]="social.label">
+            <span class="social-icon">{{ social.icon }}</span>
+            <span class="social-label">{{ social.label }}</span>
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Línea separadora -->
+  <div class="footer-separator"></div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>Tienda de Té es un trabajo práctico del IFTS 16 para la materia Desarrollo de sistemas web (Frontend)</p>
+  </div>
+</footer> 

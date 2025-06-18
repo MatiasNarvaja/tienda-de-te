@@ -1,5 +1,64 @@
 <section class="trabaja-section">
-  <h1>Trabajá con Nosotros</h1>
-  <p>Formá parte de nuestro equipo y ayudanos a crear experiencias únicas con el té.</p>
-  <!-- Aquí irán las ofertas de trabajo -->
+  <p class="main-title">SUMATE A NUESTRO EQUIPO</p>
+  <p class="subtitle">TRABAJÁ EN TDT</p>
+  
+  <span class="separator-line"></span>
+  
+  <p class="description">Si querés formar parte de Tienda de Té envianos tu datos y adjunta tu CV</p>
+
+  <form class="trabaja-form" #trabajaForm>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre">
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" name="apellido">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="puesto">¿Cuál es tu puesto de trabajo?</label>
+        <input type="text" id="puesto" name="puesto">
+      </div>
+      <div class="form-group">
+        <label for="sucursal">¿Cuál es tu sucursal de preferencia?</label>
+        <select id="sucursal" name="sucursal">
+          <option value="">Selecciona una sucursal</option>
+          <option value="palermo">Palermo</option>
+          <option value="recoleta">Recoleta</option>
+          <option value="san-telmo">San Telmo</option>
+          <option value="microcentro">Microcentro</option>
+          <option value="belgrano">Belgrano</option>
+          <option value="villa-crespo">Villa Crespo</option>
+          <option value="caballito">Caballito</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cv">Adjuntar CV</label>
+      <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
+    </div>
+
+    <div class="form-group">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+    </div>
+
+    <button type="button" class="submit-btn" (click)="onSubmit()">Enviar</button>
+  </form>
 </section>

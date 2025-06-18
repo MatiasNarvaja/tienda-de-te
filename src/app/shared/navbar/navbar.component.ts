@@ -12,11 +12,10 @@ export class NavbarComponent {
   isMenuOpen = false;
 
   menuItems = [
-    { path: '/nuestro-te', label: 'Nuestro Té' },
+    { path: '/tienda', label: 'Nuestro Té' },
     { path: '/tutoriales', label: 'Tutoriales' },
-    { path: '/locales', label: 'Locales' },
-    { path: '/nuestro-menu', label: 'Nuestro Menú' },
-    { path: '/trabaja-con-nosotros', label: 'Trabajá con Nosotros' },
+    { path: '/menu-tienda', label: 'Nuestro Menú' },
+    { path: '/trabaja-en-tdt', label: 'Trabajá con Nosotros' },
     { path: '/franquicias', label: 'Franquicias' },
     { path: '/contacto', label: 'Contacto' }
   ];

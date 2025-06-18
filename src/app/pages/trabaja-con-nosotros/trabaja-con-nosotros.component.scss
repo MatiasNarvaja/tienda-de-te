@@ -1,0 +1,166 @@
+// Estilos para el componente trabaja-con-nosotros 
+.trabaja-section {
+  padding: 2rem 2% 4rem 8%;
+  font-family: 'Oswald', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .main-title {
+    font-size: 1rem;
+    color: rgb(199, 161, 122);
+    margin-bottom: 1rem;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+    color: #2d2a2a;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #888888;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .separator-line {
+    display: block;
+    width: 160px;
+    height: 2px;
+    background-color: #c7a17a;
+    margin: 3rem auto 3rem auto;
+  }
+}
+
+.trabaja-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.trabaja-form {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto 4rem auto;
+  font-family: 'Oswald', sans-serif;
+
+  .form-row {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  .form-group {
+    flex: 1;
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-size: 14px;
+      font-weight: 400;
+      color: #2d2a2a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 1rem;
+      border: 2px solid rgba(129,129,129,.2);
+      border-radius: 4px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      background-color: #fff;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: #c7a17a;
+        box-shadow: 0 0 0 2px rgba(199, 161, 122, 0.2);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      height: auto;
+    }
+
+    input[type="file"] {
+      padding: 0.8rem;
+      border: 2px dashed #ddd;
+      background-color: #f9f9f9;
+      cursor: pointer;
+
+      &:hover {
+        border-color: #c7a17a;
+        background-color: #f5f5f5;
+      }
+    }
+  }
+
+  .submit-btn {
+    background-color: #c7a17a;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    &:hover {
+      background-color: #b08d6a;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+// Estilos para el snackbar de éxito
+::ng-deep .success-snackbar {
+  background-color: #4caf50;
+  color: white;
+  
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+} 

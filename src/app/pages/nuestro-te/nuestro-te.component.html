@@ -1,21 +1,63 @@
 <section class="nuestro-te">
-  <h1>Nuestro Té</h1>
-  <p>Descubrí nuestra selección de tés premium, cuidadosamente seleccionados de las mejores regiones productoras del mundo.</p>
-  
   <div class="te-categories">
-    <div class="category">
-      <h2>Tés Negros</h2>
-      <p>Nuestros tés negros son seleccionados de las mejores plantaciones de India, Sri Lanka y China.</p>
+    <div class="category" 
+         (mouseenter)="onMouseEnter(0)" 
+         (mouseleave)="onMouseLeave()">
+      <img *ngIf="hoveredIndex !== 0" src="assets/images/te-boldo.jpg" alt="Boldo">
+      <div *ngIf="hoveredIndex === 0" class="content-overlay">
+        <h2>Boldo</h2>
+        <p>Infusión digestiva tradicional de Sudamérica, conocida por sus propiedades hepatoprotectoras y su sabor herbal único.</p>
+      </div>
     </div>
     
-    <div class="category">
-      <h2>Tés Verdes</h2>
-      <p>Una selección de tés verdes japoneses y chinos, ricos en antioxidantes y sabor.</p>
+    <div class="category" 
+         (mouseenter)="onMouseEnter(1)" 
+         (mouseleave)="onMouseLeave()">
+      <img *ngIf="hoveredIndex !== 1" src="assets/images/te-frutilla.jpg" alt="Frutilla">
+      <div *ngIf="hoveredIndex === 1" class="content-overlay">
+        <h2>Frutilla</h2>
+        <p>Deliciosa mezcla de té negro con frutillas naturales, perfecta para disfrutar en cualquier momento del día con un toque dulce y refrescante.</p>
+      </div>
     </div>
     
-    <div class="category">
-      <h2>Tés de Hierbas</h2>
-      <p>Infusiones naturales y mezclas exclusivas para cada momento del día.</p>
+    <div class="category" 
+         (mouseenter)="onMouseEnter(2)" 
+         (mouseleave)="onMouseLeave()">
+      <img *ngIf="hoveredIndex !== 2" src="assets/images/te-grey.jpg" alt="Earl Grey">
+      <div *ngIf="hoveredIndex === 2" class="content-overlay">
+        <h2>Earl Grey</h2>
+        <p>Clásico té negro aromatizado con bergamota, una mezcla elegante y sofisticada que combina la fuerza del té con notas cítricas exquisitas.</p>
+      </div>
+    </div>
+
+    <div class="category" 
+         (mouseenter)="onMouseEnter(3)" 
+         (mouseleave)="onMouseLeave()">
+      <img *ngIf="hoveredIndex !== 3" src="assets/images/te-limon.jpg" alt="Limón">
+      <div *ngIf="hoveredIndex === 3" class="content-overlay">
+        <h2>Limón</h2>
+        <p>Refrescante infusión cítrica que combina la suavidad del té con el aroma y sabor natural del limón, ideal para despertar los sentidos.</p>
+      </div>
+    </div>
+
+    <div class="category" 
+         (mouseenter)="onMouseEnter(4)" 
+         (mouseleave)="onMouseLeave()">
+      <img *ngIf="hoveredIndex !== 4" src="assets/images/te-selection.jpg" alt="Selection Premium">
+      <div *ngIf="hoveredIndex === 4" class="content-overlay">
+        <h2>Selection Premium</h2>
+        <p>Nuestra selección premium de tés especiales, cuidadosamente curada para ofrecerte las mejores variedades en una experiencia única.</p>
+      </div>
+    </div>
+
+    <div class="category" 
+         (mouseenter)="onMouseEnter(5)" 
+         (mouseleave)="onMouseLeave()">
+      <img *ngIf="hoveredIndex !== 5" src="assets/images/te-verde.jpg" alt="Verde">
+      <div *ngIf="hoveredIndex === 5" class="content-overlay">
+        <h2>Verde</h2>
+        <p>Té verde tradicional rico en antioxidantes, con un sabor suave y herbáceo que promueve el bienestar y la vitalidad natural.</p>
+      </div>
     </div>
   </div>
 </section>
