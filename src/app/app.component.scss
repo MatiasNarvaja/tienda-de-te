@@ -22,5 +22,5 @@ router-outlet {
 router-outlet + * {
   flex: 1;
   display: block;
-  min-height: calc(100vh - 120px); // Altura mínima considerando navbar y footer
+  min-height: calc(100vh - 200px); // Altura mínima considerando navbar y footer
 }

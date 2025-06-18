@@ -129,6 +129,35 @@
   }
 }
 
+// Enlaces de LinkedIn
+.linkedin-link {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.3rem 0;
+  margin: 0.5rem 0;
+
+  &:hover {
+    color: #0077b5;
+    background-color: rgba(0, 119, 181, 0.1);
+    padding-left: 0.5rem;
+  }
+
+  .linkedin-icon {
+    font-size: 1.1rem;
+  }
+
+  span:not(.linkedin-icon) {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+}
+
 // Redes sociales
 .social-links {
   display: flex;
