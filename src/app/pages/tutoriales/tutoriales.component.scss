@@ -126,3 +126,15 @@
     }
   }
 }
+
+// Responsive design
+@media (max-width: 768px) {
+  .tutoriales-section {
+    padding: 1rem 5%;
+
+    .tutoriales-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+}
