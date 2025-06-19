@@ -18,7 +18,7 @@ El proyecto está desplegado en Netlify y puede visualizarse en:
 ## Instrucciones para desarrollo
 1. Clona el repositorio:
    ```bash
-   git clone <url-del-repo>
+   git clone https://github.com/MatiasNarvaja/tienda-de-te.git
    cd tienda-cafe
    ```
 2. Instala las dependencias:
