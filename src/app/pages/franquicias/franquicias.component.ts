@@ -13,6 +13,7 @@ import { SuccessDialogComponent } from '../../shared/success-dialog/success-dial
 })
 export class FranquiciasComponent {
   @ViewChild('franquiciasForm') form!: ElementRef;
+  isSubmitting = false;
 
   // Propiedades para rastrear el estado de cada campo
   formData = {
@@ -96,16 +97,23 @@ export class FranquiciasComponent {
     if (!this.isFormComplete()) {
       return;
     }
-    this.resetForm();
-    this.dialog.open(SuccessDialogComponent, {
-      width: '400px',
-      disableClose: true,
-      data: {
-        title: '¡Envío Exitoso!',
-        message: 'El mensaje fue enviado de manera exitosa',
-        subtitle: 'Nos pondremos en contacto contigo pronto'
-      }
-    });
+    
+    this.isSubmitting = true;
+    
+    // Simular envío del formulario
+    setTimeout(() => {
+      this.isSubmitting = false;
+      this.resetForm();
+      this.dialog.open(SuccessDialogComponent, {
+        width: '400px',
+        disableClose: true,
+        data: {
+          title: '¡Envío Exitoso!',
+          message: 'El mensaje fue enviado de manera exitosa',
+          subtitle: 'Nos pondremos en contacto contigo pronto'
+        }
+      });
+    }, 1500);
   }
 
   private resetForm() {

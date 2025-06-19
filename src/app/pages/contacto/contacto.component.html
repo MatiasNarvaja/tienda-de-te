@@ -1,5 +1,89 @@
-<section>
-  <h1>Contacto</h1>
-  <p>Ponete en contacto con nosotros. Estamos aquí para ayudarte.</p>
-  <!-- Aquí irá el formulario de contacto -->
+<section class="contacto-section">
+  <p class="main-title">PONETE EN CONTACTO</p>
+  <p class="subtitle">COMUNICATE CON NOSOTROS</p>
+  <span class="separator-line"></span>
+  <p class="description">
+    Ante cualquier consulta no dudes en comunicarte. Dejá tus datos y consulta utilizando el formulario a continuación y nos contactaremos a la brevedad.
+  </p>
+
+  <div class="contact-content">
+    <!-- Información de contacto -->
+    <div class="contact-info">
+      <h3>Información de Contacto</h3>
+      <div class="info-item">
+        <span class="info-label">Dirección:</span>
+        <span class="info-value">Av. Cocientes 1234, Buenos Aires, Argentina</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Teléfono:</span>
+        <span class="info-value">+54 11 1234-##-##</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Email:</span>
+        <span class="info-value">info&#64;tiendadete.com</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Horarios:</span>
+        <span class="info-value">Lunes a Viernes: 8:00 - 20:00<br>Sábados: 9:00 - 18:00</span>
+      </div>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <form class="contacto-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input 
+            type="text" 
+            id="nombre" 
+            name="nombre"
+            formControlName="nombre"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email"
+            formControlName="email"
+            placeholder="ejemplo&#64;email.com"
+            required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="asunto">Asunto</label>
+          <input 
+            type="text" 
+            id="asunto" 
+            name="asunto"
+            formControlName="asunto"
+            placeholder="¿En qué podemos ayudarte?"
+            required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea 
+            id="mensaje" 
+            name="mensaje"
+            formControlName="mensaje"
+            rows="5"
+            placeholder="Cuéntanos más detalles sobre tu consulta..."
+            required></textarea>
+        </div>
+      </div>
+
+      <button 
+        type="submit" 
+        class="submit-btn" 
+        [disabled]="contactForm.invalid || isSubmitting">
+        {{ isSubmitting ? 'Enviando...' : 'Enviar mensaje' }}
+      </button>
+    </form>
+  </div>
 </section>
