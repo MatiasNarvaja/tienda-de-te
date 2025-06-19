@@ -1,5 +1,45 @@
-<section>
-  <h1>Nuestro Menú</h1>
-  <p>Explorá nuestra selección de tés, infusiones y accesorios.</p>
-  <!-- Aquí irá el menú -->
+<section class="menu-section">
+  <p class="main-title">NUESTRO MENÚ</p>
+  <p class="subtitle">SABORES ÚNICOS</p>
+  <span class="separator-line"></span>
+  <p class="description">
+    Descubrí nuestra selección de bebidas artesanales, pastelería casera y comidas gourmet. 
+    Cada plato está preparado con ingredientes frescos y mucho amor.
+  </p>
+
+  <!-- Filtros de categorías -->
+  <div class="category-filters">
+    @for (category of menuCategories; track category.id) {
+      <button 
+        class="category-btn" 
+        [class.active]="selectedCategory === category.id"
+        (click)="selectCategory(category.id)">
+        {{ category.name }}
+      </button>
+    }
+  </div>
+
+  <!-- Grid del menú -->
+  <div class="menu-grid">
+    @for (item of filteredItems; track item.id) {
+      <div class="menu-card">
+        <div class="menu-image">
+          <img [src]="item.image" [alt]="item.name" loading="lazy">
+        </div>
+        <div class="menu-content">
+          <div class="menu-header">
+            <h3 class="menu-title">{{ item.name }}</h3>
+          </div>
+          <p class="menu-description">{{ item.description }}</p>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Mensaje cuando no hay items -->
+  @if (filteredItems.length === 0) {
+    <div class="no-items">
+      <p>No hay productos disponibles en esta categoría.</p>
+    </div>
+  }
 </section>
