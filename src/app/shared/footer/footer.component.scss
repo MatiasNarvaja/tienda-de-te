@@ -210,4 +210,40 @@
     margin: 0;
     font-weight: 300;
   }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    text-align: center;
+  }
+  .footer-brand .logo-text {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .links-grid {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-info {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .linkedin-link {
+    justify-content: center;
+    text-align: center;
+  }
+  .social-links {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .social-link {
+    justify-content: center;
+    text-align: center;
+  }
 } 

@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* =========================
+   MEDIA QUERIES GLOBALES
+   ========================= */
+
+/* Tablet horizontal */
+@media (max-width: 1080px) {
+  /* Ajustes globales para <= 1080px */
+}
+
+/* Tablet vertical */
+@media (max-width: 768px) {
+  /* Ajustes globales para <= 768px */
+}
+
+/* Mobil 1 */
+@media (max-width: 480px) {
+  /* Ajustes globales para <= 480px */
+}
+
+/* Mobil 2 */
+@media (max-width: 375px) {
+  /* Ajustes globales para <= 375px */
+}
