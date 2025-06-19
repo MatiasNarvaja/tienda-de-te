@@ -1,27 +1,45 @@
-# TiendaCafe
+# Tienda de Té
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Proyecto web desarrollado como trabajo práctico para la materia **Desarrollo de Sistemas Web (Frontend)** del IFTS 16.
 
-## Development server
+## Descripción
+Tienda de Té es una aplicación web que simula el sitio de una tienda especializada en tés, con información sobre productos, franquicias, contacto, menú y más. Incluye formularios interactivos y un diseño moderno, pensado para brindar una experiencia atractiva y funcional.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologías principales
+- Angular 17
+- TypeScript
+- SCSS (Sass)
+- Angular Material (para diálogos y componentes UI)
 
-## Code scaffolding
+## Visualización online
+El proyecto está desplegado en Netlify y puede visualizarse en:
+[https://tienda-de-te.netlify.app/home](https://tienda-de-te.netlify.app/home)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instrucciones para desarrollo
+1. Clona el repositorio:
+   ```bash
+   git clone <url-del-repo>
+   cd tienda-cafe
+   ```
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+3. Inicia el servidor de desarrollo:
+   ```bash
+   ng serve
+   ```
+   Luego navega a [http://localhost:4200](http://localhost:4200) para ver la aplicación.
 
-## Build
+## Instrucciones para build
+Para generar una versión lista para producción:
+```bash
+ng build
+```
+Los archivos generados estarán en la carpeta `dist/`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Créditos y contacto
+- **Leonardo Morganti**
+- **Narvaja Matias**
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Proyecto realizado para el IFTS 16, materia Desarrollo de Sistemas Web (Frontend).
