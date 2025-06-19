@@ -14,11 +14,11 @@ export class FooterComponent {
   
   footerLinks = [
     { path: '/tienda', label: 'Nuestro Té' },
-    { path: '/menu-tienda', label: 'Nuestro Menú' },
-    { path: '/franquicias', label: 'Franquicias' },
     { path: '/tutoriales', label: 'Tutoriales' },
-    { path: '/contacto', label: 'Contacto' },
-    { path: '/trabaja-en-tdt', label: 'Trabajá con Nosotros' }
+    { path: '/menu-tienda', label: 'Nuestro Menú' },
+    { path: '/trabaja-en-tdt', label: 'Trabajá con Nosotros' },
+    { path: '/franquicias', label: 'Franquicias' },
+    { path: '/contacto', label: 'Contacto' }
   ];
 
   socialLinks = [

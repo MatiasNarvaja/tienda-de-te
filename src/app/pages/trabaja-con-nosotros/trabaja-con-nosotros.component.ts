@@ -13,6 +13,7 @@ import { SuccessDialogComponent } from '../../shared/success-dialog/success-dial
 })
 export class TrabajaConNosotrosComponent {
   @ViewChild('trabajaForm') form!: ElementRef;
+  isSubmitting = false;
   
   // Propiedades para rastrear el estado de cada campo
   formData = {
@@ -132,19 +133,26 @@ export class TrabajaConNosotrosComponent {
       return;
     }
     
-    // Limpiar el formulario
-    this.resetForm();
+    this.isSubmitting = true;
     
-    // Mostrar dialog de Material
-    this.dialog.open(SuccessDialogComponent, {
-      width: '400px',
-      disableClose: true, // No se puede cerrar haciendo clic fuera
-      data: {
-        title: '¡Envío Exitoso!',
-        message: 'El mensaje fue enviado de manera exitosa',
-        subtitle: 'Nos pondremos en contacto contigo pronto'
-      }
-    });
+    // Simular envío del formulario
+    setTimeout(() => {
+      this.isSubmitting = false;
+      
+      // Limpiar el formulario
+      this.resetForm();
+      
+      // Mostrar dialog de Material
+      this.dialog.open(SuccessDialogComponent, {
+        width: '400px',
+        disableClose: true, // No se puede cerrar haciendo clic fuera
+        data: {
+          title: '¡Envío Exitoso!',
+          message: 'El mensaje fue enviado de manera exitosa',
+          subtitle: 'Nos pondremos en contacto contigo pronto'
+        }
+      });
+    }, 1500);
   }
 
   private resetForm() {
