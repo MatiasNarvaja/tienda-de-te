@@ -1,5 +1,88 @@
-<section>
-  <h1>Franquicias</h1>
-  <p>Invertí en el negocio del té y formá parte de nuestra red de franquicias.</p>
-  <!-- Aquí irá la información de franquicias -->
+<section class="franquicias-section">
+  <p class="main-title">CONOCÉ TODAS LAS OPCIONES</p>
+  <p class="subtitle">CONVERTITE EN FRANQUICIADO</p>
+  <span class="separator-line"></span>
+  <p class="description">
+    ¿Querés ser parte de este equipo? Dejanos tus datos para recibir más información, y nos pondremos en contacto para contarte todas las posibilidades de tu próxima franquicia Tienda de Té!
+  </p>
+
+  <form class="franquicias-form" #franquiciasForm>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input 
+          type="text" 
+          id="nombre" 
+          name="nombre"
+          (input)="onFieldChange('nombre', $event)"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input 
+          type="text" 
+          id="apellido" 
+          name="apellido"
+          (input)="onFieldChange('apellido', $event)"
+          required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          placeholder="ejemplo@email.com"
+          (input)="onEmailInput($event)"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input 
+          type="tel" 
+          id="telefono" 
+          name="telefono"
+          pattern="[0-9]+"
+          inputmode="numeric"
+          maxlength="15"
+          placeholder="Ej: 1123456789"
+          (input)="onTelefonoInput($event)"
+          (keypress)="onTelefonoKeyPress($event)"
+          required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="como">¿Cómo llegaste a nosotros?</label>
+        <input 
+          type="text" 
+          id="como" 
+          name="como"
+          (input)="onFieldChange('como', $event)"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="zona">¿En qué zona te interesaría instalar la franquicia?</label>
+        <input 
+          type="text" 
+          id="zona" 
+          name="zona"
+          (input)="onFieldChange('zona', $event)"
+          required>
+      </div>
+    </div>
+
+    <button 
+      type="button" 
+      class="submit-btn" 
+      [disabled]="!isFormComplete()"
+      (click)="onSubmit()">
+      Enviar
+    </button>
+  </form>
 </section>
