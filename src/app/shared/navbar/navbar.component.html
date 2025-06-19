@@ -1,6 +1,7 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <a routerLink="/" class="navbar-logo">
+    <!-- Logo solo visible en desktop/tablet -->
+    <a routerLink="/" class="navbar-logo desktop-only">
       <div class="logo-text">
         <span class="logo-main">Tienda</span>
         <span class="logo-sub">de Té</span>
@@ -12,6 +13,14 @@
     </button>
 
     <div class="navbar-menu" [class.active]="isMenuOpen">
+      <!-- Logo como item de menú solo en mobile -->
+      <a 
+        routerLink="/" 
+        class="navbar-item mobile-only" 
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: true}">
+        Tienda de Té
+      </a>
       @for (item of menuItems; track item.path) {
         <a 
           class="navbar-item" 
