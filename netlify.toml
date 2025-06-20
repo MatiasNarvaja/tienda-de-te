@@ -1,7 +1,3 @@
-[build]
-  command = "npm run build:netlify"
-  publish = "dist/tienda-cafe/browser"
-
 [build.environment]
   NODE_VERSION = "18"
 
