@@ -25,7 +25,85 @@
   </div>
 </div>
 
-<section class="home-welcome">
-  <h1>Bienvenido a Tienda de Té</h1>
-  <p>Descubrí nuestras variedades de té, infusiones y accesorios. ¡Sentite como en tu casa de té favorita!</p>
+<section class="nuestros-productos">
+  <h1>NUESTROS PRODUCTOS</h1>
+  
+  <div class="products-carousel-container">
+    <button class="products-carousel-control prev" (click)="previousProductSlide()" [disabled]="currentProductSlide === 0">❮</button>
+    
+    <div class="products-carousel">
+      @for (product of visibleProducts; track product.name; let i = $index) {
+        <div class="product-item" 
+             (mouseenter)="onMouseEnter(currentProductSlide + i)" 
+             (mouseleave)="onMouseLeave()">
+          <img *ngIf="hoveredIndex !== currentProductSlide + i" [src]="product.image" [alt]="product.name">
+          <div *ngIf="hoveredIndex === currentProductSlide + i" class="content-overlay">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <button class="products-carousel-control next" (click)="nextProductSlide()" [disabled]="currentProductSlide >= teaProducts.length - 3">❯</button>
+  </div>
+  
+  <div class="products-carousel-indicators">
+    @for (indicator of productIndicators; track indicator; let i = $index) {
+      <button 
+        class="indicator" 
+        [class.active]="i === currentProductSlide / 3"
+        (click)="goToProductSlide(i * 3)">
+      </button>
+    }
+  </div>
 </section>
+
+<section class="nuestro-te-section">
+  <div class="te-header">
+    <h1>NUESTRO TÉ</h1>
+    <h2>¿CUÁL VAS A ELEGIR HOY?</h2>
+  </div>
+  
+  <div class="te-content">
+    <div class="te-text-left">
+      <div class="te-variety">
+        <h3>EARL GREY</h3>
+        <p>Nuestro blend tradicional de la casa, el hijo prodigio de TIENDA. Hojas de té negro de Sri Lanka aromatizadas con bergamota italiana, nos permiten obtener este té elegante, de cuerpo medio, con notas cítricas exquisitas. Si lo vas a tomar en tu casa, te vas a sentir bien cerca de TIENDA.</p>
+      </div>
+      
+      <div class="te-variety">
+        <h3>SELECTION PREMIUM</h3>
+        <p>Una combinación única, lograda por la selección de las mejores hojas de té verde, negro y rojo. Un té de cuerpo medio, levemente herbáceo y estructuralmente complejo que despierta todos los sentidos.</p>
+      </div>
+      
+      <div class="te-variety">
+        <h3>VERDE</h3>
+        <p>Este blend nos regala un té de gran pureza, con un sabor fresco y natural. Si sos amante del té saludable, te vas a enamorar de nuestro Verde, rico en antioxidantes y vitalidad.</p>
+      </div>
+    </div>
+    
+    <div class="te-image">
+      <img src="assets/images/nuestro-te.jpg" alt="Nuestro Té">
+    </div>
+    
+    <div class="te-text-right">
+      <div class="te-variety">
+        <h3>BOLDO</h3>
+        <p>Nuestro varietal clásico sudamericano. Adentrate en las tradiciones herbales con este té de cuerpo suave, gusto herbal, aroma terroso y propiedades digestivas. Inconfundible.</p>
+      </div>
+      
+      <div class="te-variety">
+        <h3>FRUTILLA</h3>
+        <p>Si querés disfrutar un exquisito té con un toque dulce y refrescante, este es tu blend! Té negro originario de India con frutillas naturales, suave, de cuerpo medio y un aroma que te invita a probarlo. Perfecto para cualquier momento del día.</p>
+      </div>
+      
+      <div class="te-variety">
+        <h3>LIMÓN</h3>
+        <p>Un té de cuerpo suave y refrescante acidez cítrica hacen de LIMÓN el ideal para despertar tus sentidos. La combinación perfecta entre la suavidad del té y el aroma natural del limón.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cafeteria-section></app-cafeteria-section>

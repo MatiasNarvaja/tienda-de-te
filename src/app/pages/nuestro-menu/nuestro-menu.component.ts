@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
+import { CafeteriaSectionComponent } from '../../shared/cafeteria-section/cafeteria-section.component';
 
 @Component({
   selector: 'app-nuestro-menu',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule],
+  imports: [CommonModule, MatDialogModule, MatButtonModule, CafeteriaSectionComponent],
   templateUrl: './nuestro-menu.component.html',
   styleUrl: './nuestro-menu.component.scss'
 })
