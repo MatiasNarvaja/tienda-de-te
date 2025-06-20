@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build && mkdir -p dist/tienda-cafe/browser/browser && cp -r dist/tienda-cafe/browser/* dist/tienda-cafe/browser/browser/"
+  command = "npm run build:netlify"
   publish = "dist/tienda-cafe/browser/browser"
 
 [build.environment]
