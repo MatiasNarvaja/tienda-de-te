@@ -1,1 +1,323 @@
-// Estilos para el componente nuestro-menu 
+// Estilos para el componente nuestro-menu
+.menu-section {
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-x: hidden; // Prevent horizontal scrolling
+}
+
+// Main image styles
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 60vh; // Adjust height as needed
+  overflow: hidden;
+  margin-bottom: 2rem;
+
+  .main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .grayscale-image {
+    filter: grayscale(100%); // Convert to black and white
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    width: 90%; // Ensure text doesn't overflow
+    max-width: 800px; // Limit maximum width
+
+    .bold-text {
+      font-weight: 700;
+      color: #c7a17a;
+    }
+
+    .subtitle-text {
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 1px;
+      margin: 1rem 0;
+    }
+
+    .location-btn {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+
+      &:hover {
+        background: white;
+        color: #333;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+// Cakes section styles
+.cakes-section {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem 4rem;
+  margin-top: -2rem; // Create overlap with main image
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  .cake-container {
+    position: relative;
+    flex: 1;
+    height: 600px;
+    overflow: hidden;
+    max-width: calc(50% - 1rem); // Ensure containers don't exceed 50% width
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    &.left-cake {
+      margin-top: 2rem; // Creates the staggered effect
+    }
+
+    &.right-cake {
+      margin-top: 150px; // Increased from 0 to start at ~25% of first cake height
+    }
+  }
+
+  .cake-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    max-width: 400px;
+
+    .bold-text {
+      font-weight: 700;
+      color: #c7a17a;
+    }
+  }
+}
+
+// Gallery section styles
+.gallery-section {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem 4rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  .gallery-item {
+    position: relative;
+    flex: 1;
+    height: 600px;
+    overflow: hidden;
+    min-width: 45%;
+    max-width: calc(50% - 1rem); // Ensure items don't exceed 50% width
+
+    img {
+      width: 100%;
+      height: 500px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    &.left-item {
+      margin-top: 0;
+    }
+
+    &.right-item {
+      margin-top: 150px; // Same staggered effect as cakes
+    }
+
+    &.special-item {
+      background-color: #ccc;
+      padding: 2rem;
+      margin-top: 2rem;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 16px;
+      width: 60% !important;
+      flex: none !important;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      max-width: 600px; // Limit maximum width
+    }
+  }
+
+  .special-text-overlay {
+    color: #333;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    z-index: 10;
+  }
+
+  .clickable-img {
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    display: block;
+    margin-top: auto;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem 3rem;
+
+    .gallery-item {
+      height: 450px;
+      min-width: 100%;
+      margin-top: 0 !important; // Remove staggered effect on mobile
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 1024px) {
+  .main-image-container .text-overlay {
+    font-size: 2.5rem;
+  }
+
+  .cakes-section {
+    .cake-container {
+      height: 550px;
+    }
+
+    .cake-text-overlay {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-image-container {
+    height: 50vh;
+    margin-bottom: 0 !important; // Remove margin completely
+  }
+
+  .main-image-container .text-overlay {
+    font-size: 1.8rem;
+    width: 95%;
+    max-width: 100%;
+
+    .subtitle-text {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .location-btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .cakes-section {
+    flex-direction: column;
+    gap: 0 !important; // Remove gap completely
+    padding: 0 0.5rem 0 !important; // Remove bottom padding
+    margin-top: 0;
+
+    .cake-container {
+      height: 400px;
+      margin-top: 0 !important;
+      max-width: 100%;
+    }
+
+    .cake-text-overlay {
+      font-size: 1.2rem;
+      width: 95%;
+      max-width: 100%;
+    }
+  }
+
+  .gallery-section {
+    gap: 0 !important; // Remove gap completely
+    padding: 0 0.5rem 0 !important; // Remove bottom padding
+
+    .gallery-item {
+      height: 350px;
+      min-width: 100%;
+      max-width: 100%;
+      margin-top: 0 !important;
+
+      &.special-item {
+        width: 95% !important;
+        min-height: 500px;
+        padding: 1.5rem;
+        max-width: 95%;
+      }
+    }
+
+    .clickable-img {
+      height: 400px;
+    }
+  }
+} 

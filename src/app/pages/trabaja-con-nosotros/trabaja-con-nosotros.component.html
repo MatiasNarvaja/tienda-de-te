@@ -103,9 +103,9 @@
     <button 
       type="button" 
       class="submit-btn" 
-      [disabled]="!isFormComplete()"
+      [disabled]="!isFormComplete() || isSubmitting"
       (click)="onSubmit()">
-      Enviar
+      {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
     </button>
   </form>
 </section>
