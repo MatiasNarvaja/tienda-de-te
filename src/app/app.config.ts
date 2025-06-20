@@ -4,6 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 import { routes } from './app.routes';
 
@@ -13,6 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideAnimationsAsync(),
     provideAnimations(),
-    provideNativeDateAdapter()
+    provideNativeDateAdapter(),
+    provideNoopAnimations()
   ]
 };
