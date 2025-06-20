@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build --configuration production",
     "build:dev": "ng build",
-    "build:netlify": "ng build --configuration production && mkdir -p dist/tienda-cafe/browser/browser && cp -r dist/tienda-cafe/browser/* dist/tienda-cafe/browser/browser/",
+    "build:netlify": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
