@@ -1,45 +1,51 @@
 <section class="menu-section">
-  <p class="main-title">NUESTRO MENÚ</p>
-  <p class="subtitle">SABORES ÚNICOS</p>
-  <span class="separator-line"></span>
-  <p class="description">
-    Descubrí nuestra selección de bebidas artesanales, pastelería casera y comidas gourmet. 
-    Cada plato está preparado con ingredientes frescos y mucho amor.
-  </p>
-
-  <!-- Filtros de categorías -->
-  <div class="category-filters">
-    @for (category of menuCategories; track category.id) {
-      <button 
-        class="category-btn" 
-        [class.active]="selectedCategory === category.id"
-        (click)="selectCategory(category.id)">
-        {{ category.name }}
-      </button>
-    }
-  </div>
-
-  <!-- Grid del menú -->
-  <div class="menu-grid">
-    @for (item of filteredItems; track item.id) {
-      <div class="menu-card">
-        <div class="menu-image">
-          <img [src]="item.image" [alt]="item.name" loading="lazy">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">{{ item.name }}</h3>
-          </div>
-          <p class="menu-description">{{ item.description }}</p>
-        </div>
-      </div>
-    }
-  </div>
-
-  <!-- Mensaje cuando no hay items -->
-  @if (filteredItems.length === 0) {
-    <div class="no-items">
-      <p>No hay productos disponibles en esta categoría.</p>
+  <!-- Main image with text overlay -->
+  <div class="main-image-container">
+    <img [src]="mainImage" alt="Bagel Artesanal" class="main-image" loading="lazy">
+    <div class="text-overlay">
+      <p>SOMOS TÉ</p>
+      <p class="bold-text">Y MUCHO MAS</p>
     </div>
-  }
+  </div>
+
+  <!-- Special cakes section -->
+  <div class="cakes-section">
+    <div class="cake-container left-cake">
+      <img [src]="galleryImages[0]" alt="Torta Clásica" loading="lazy">
+      <div class="cake-text-overlay">
+        <p>DEJATE TENTAR CON NUESTRAS</p>
+        <p class="bold-text">DULZURAS</p>
+      </div>
+    </div>
+    <div class="cake-container right-cake">
+      <img [src]="galleryImages[1]" alt="Torta Especial" loading="lazy">
+    </div>
+  </div>
+
+  <!-- Gallery for remaining images -->
+  <div class="gallery-section">
+    <div class="gallery-item left-item">
+      <img [src]="galleryImages[2]" alt="Cappuccino Casero" loading="lazy">
+    </div>
+    <div class="gallery-item right-item">
+      <img [src]="galleryImages[3]" alt="Brunch Completo" loading="lazy">
+    </div>
+    <div class="gallery-item left-item special-item">
+      <div class="special-text-overlay">
+        <p>CONOCÉ TODAS NUESTRAS OPCIONES</p>
+      </div>
+      <img [src]="galleryImages[4]" alt="Sandwich Veggie" loading="lazy" (click)="showMenuDialog()" class="clickable-img">
+    </div>
+  </div>
+
+  <!-- Cafeteria image with same format as bagel -->
+  <div class="main-image-container">
+    <img [src]="galleryImages[5]" alt="Cafetería" class="main-image grayscale-image" loading="lazy">
+    <div class="text-overlay">
+      <p>SIEMPRE HAY UN</p>
+      <p class="bold-text">TIENDA CERCA TUYO</p>
+      <p class="subtitle-text">Encontrá nuestra sucursal más cercana.</p>
+      <button class="location-btn">INGRESAR</button>
+    </div>
+  </div>
 </section>
