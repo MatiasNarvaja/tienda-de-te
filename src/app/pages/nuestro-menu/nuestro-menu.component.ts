@@ -32,7 +32,8 @@ export class NuestroMenuComponent {
       data: {
         title: '¡Próximamente!',
         message: 'Estamos trabajando en crear nuestro menú',
-        subtitle: 'Pronto estará disponible'
+        subtitle: 'Pronto estará disponible',
+        hideSuccessIcon: true
       }
     });
   }
