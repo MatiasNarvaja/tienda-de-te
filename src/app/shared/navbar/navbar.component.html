@@ -18,7 +18,8 @@
         routerLink="/" 
         class="navbar-item mobile-only" 
         routerLinkActive="active" 
-        [routerLinkActiveOptions]="{exact: true}">
+        [routerLinkActiveOptions]="{exact: true}"
+        (click)="closeMenu()">
         Tienda de Té
       </a>
       @for (item of menuItems; track item.path) {
@@ -26,7 +27,8 @@
           class="navbar-item" 
           [routerLink]="item.path"
           routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact: true}">
+          [routerLinkActiveOptions]="{exact: true}"
+          (click)="closeMenu()">
           {{ item.label }}
         </a>
       }

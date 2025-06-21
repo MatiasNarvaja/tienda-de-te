@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
 import { CafeteriaSectionComponent } from '../../shared/cafeteria-section/cafeteria-section.component';
+import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CafeteriaSectionComponent],
+  imports: [CommonModule, CafeteriaSectionComponent, SuccessDialogComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -64,17 +66,39 @@ export class HomeComponent implements OnInit {
   currentSlide = 0;
   currentProductSlide = 0;
   hoveredIndex: number | null = null;
+  isMobile = false;
+
+  ngOnInit() {
+    this.checkScreenSize();
+    this.startSlideShow();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isMobile = window.innerWidth <= 768;
+    // Ajustar el slide actual si es necesario
+    if (this.isMobile && this.currentProductSlide % 3 !== 0) {
+      this.currentProductSlide = Math.floor(this.currentProductSlide / 3) * 3;
+    }
+  }
 
   get visibleProducts() {
-    return this.teaProducts.slice(this.currentProductSlide, this.currentProductSlide + 3);
+    const itemsPerView = this.isMobile ? 1 : 3;
+    return this.teaProducts.slice(this.currentProductSlide, this.currentProductSlide + itemsPerView);
   }
 
   get productIndicators(): number[] {
-    return Array.from({ length: Math.ceil(this.teaProducts.length / 3) }, (_, i) => i);
+    const itemsPerView = this.isMobile ? 1 : 3;
+    return Array.from({ length: Math.ceil(this.teaProducts.length / itemsPerView) }, (_, i) => i);
   }
 
-  ngOnInit() {
-    this.startSlideShow();
+  get maxProductSlide(): number {
+    const itemsPerView = this.isMobile ? 1 : 3;
+    return this.teaProducts.length - itemsPerView;
   }
 
   startSlideShow() {
@@ -96,20 +120,23 @@ export class HomeComponent implements OnInit {
   }
 
   nextProductSlide() {
-    const maxSlide = this.teaProducts.length - 3;
+    const itemsPerView = this.isMobile ? 1 : 3;
+    const maxSlide = this.teaProducts.length - itemsPerView;
     if (this.currentProductSlide < maxSlide) {
-      this.currentProductSlide += 3;
+      this.currentProductSlide += itemsPerView;
     }
   }
 
   previousProductSlide() {
+    const itemsPerView = this.isMobile ? 1 : 3;
     if (this.currentProductSlide > 0) {
-      this.currentProductSlide -= 3;
+      this.currentProductSlide -= itemsPerView;
     }
   }
 
   goToProductSlide(index: number) {
-    this.currentProductSlide = index;
+    const itemsPerView = this.isMobile ? 1 : 3;
+    this.currentProductSlide = index * itemsPerView;
   }
 
   onMouseEnter(index: number) {

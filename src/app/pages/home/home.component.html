@@ -45,15 +45,15 @@
       }
     </div>
     
-    <button class="products-carousel-control next" (click)="nextProductSlide()" [disabled]="currentProductSlide >= teaProducts.length - 3">❯</button>
+    <button class="products-carousel-control next" (click)="nextProductSlide()" [disabled]="currentProductSlide >= maxProductSlide">❯</button>
   </div>
   
   <div class="products-carousel-indicators">
     @for (indicator of productIndicators; track indicator; let i = $index) {
       <button 
         class="indicator" 
-        [class.active]="i === currentProductSlide / 3"
-        (click)="goToProductSlide(i * 3)">
+        [class.active]="i === (currentProductSlide / (isMobile ? 1 : 3))"
+        (click)="goToProductSlide(i)">
       </button>
     }
   </div>

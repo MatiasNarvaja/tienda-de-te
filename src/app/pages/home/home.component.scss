@@ -2,6 +2,8 @@
   padding: 4rem 0;
   background: #fafafa;
   margin-top: 3rem;
+  overflow-x: hidden;
+  box-sizing: border-box;
 
   .te-header {
     text-align: center;
@@ -30,6 +32,7 @@
     margin: 0 auto;
     padding: 0 2rem;
     align-items: start;
+    box-sizing: border-box;
 
     .te-text-left,
     .te-text-right {
@@ -37,8 +40,13 @@
       flex-direction: column;
       gap: 2rem;
       min-width: 280px;
+      max-width: 100%;
+      box-sizing: border-box;
 
       .te-variety {
+        width: 100%;
+        box-sizing: border-box;
+
         h3 {
           font-size: 1.1rem;
           color: rgb(199, 161, 122);
@@ -52,6 +60,9 @@
           color: #4a4a4a;
           line-height: 1.6;
           margin: 0;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          max-width: 100%;
         }
       }
     }
@@ -61,9 +72,13 @@
       justify-content: center;
       align-items: center;
       padding: 1rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
 
       img {
-        max-width: 700px;
+        max-width: 100%;
+        width: 100%;
         height: auto;
         border-radius: 12px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -421,6 +436,7 @@
   }
 
   .product-item {
+    flex: 0 0 calc(100% - 0.5rem);
     height: 200px;
 
     .content-overlay {
@@ -443,11 +459,20 @@
   }
 
   .nuestro-te-section {
-    padding: 3rem 0;
+    padding: 2rem 1rem;
     margin-top: 2rem;
+    overflow-x: hidden;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .te-header {
       margin-bottom: 2rem;
+      text-align: center;
+      width: 100%;
+      max-width: 90%;
 
       h1 {
         font-size: 1.8rem;
@@ -460,31 +485,54 @@
 
     .te-content {
       grid-template-columns: 1fr;
-      gap: 2rem;
-      padding: 0 1rem;
+      gap: 1.5rem;
+      padding: 0;
+      max-width: 90%;
+      width: 100%;
+      margin: 0 auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       .te-text-left,
       .te-text-right {
         min-width: auto;
         gap: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
 
         .te-variety {
+          width: 100%;
+          box-sizing: border-box;
+
           h3 {
             font-size: 1rem;
           }
 
           p {
             font-size: 0.85rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
           }
         }
       }
 
       .te-image {
         order: -1;
-        padding: 0.5rem;
+        padding: 0.3rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
 
         img {
           max-width: 100%;
+          width: 100%;
+          height: auto;
         }
       }
     }
@@ -542,6 +590,7 @@
   }
 
   .product-item {
+    flex: 0 0 calc(100% - 0.4rem);
     height: 180px;
 
     .content-overlay {
@@ -565,11 +614,20 @@
   }
 
   .nuestro-te-section {
-    padding: 2rem 0;
+    padding: 1.5rem 0.5rem;
     margin-top: 1.5rem;
+    overflow-x: hidden;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .te-header {
       margin-bottom: 1.5rem;
+      text-align: center;
+      width: 100%;
+      max-width: 85%;
 
       h1 {
         font-size: 1.5rem;
@@ -582,20 +640,51 @@
 
     .te-content {
       gap: 1.5rem;
-      padding: 0 0.8rem;
+      padding: 0;
+      max-width: 85%;
+      width: 100%;
+      margin: 0 auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       .te-text-left,
       .te-text-right {
         gap: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
 
         .te-variety {
+          width: 100%;
+          box-sizing: border-box;
+
           h3 {
             font-size: 0.9rem;
           }
 
           p {
             font-size: 0.8rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
           }
+        }
+      }
+
+      .te-image {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0.2rem;
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
         }
       }
     }
@@ -653,6 +742,7 @@
   }
 
   .product-item {
+    flex: 0 0 calc(100% - 0.3rem);
     height: 160px;
 
     .content-overlay {
@@ -676,11 +766,15 @@
   }
 
   .nuestro-te-section {
-    padding: 1.5rem 0;
+    padding: 1rem 0.3rem;
     margin-top: 1rem;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
 
     .te-header {
       margin-bottom: 1rem;
+      text-align: center;
 
       h1 {
         font-size: 1.3rem;
@@ -693,20 +787,211 @@
 
     .te-content {
       gap: 1rem;
-      padding: 0 0.6rem;
+      padding: 0;
+      max-width: 80%;
+      margin: 0 auto;
+      box-sizing: border-box;
 
       .te-text-left,
       .te-text-right {
         gap: 0.8rem;
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
 
         .te-variety {
+          width: 100%;
+          box-sizing: border-box;
+
           h3 {
             font-size: 0.8rem;
           }
 
           p {
             font-size: 0.7rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
           }
+        }
+      }
+
+      .te-image {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0.1rem;
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 420px) {
+  .nuestro-te-section {
+    padding: 0.8rem 0.2rem;
+    margin-top: 0.8rem;
+    overflow-x: hidden;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .te-header {
+      margin-bottom: 0.8rem;
+      text-align: center;
+      width: 100%;
+      max-width: 75%;
+
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      h2 {
+        font-size: 0.8rem;
+      }
+    }
+
+    .te-content {
+      gap: 0.8rem;
+      padding: 0;
+      max-width: 75%;
+      width: 100%;
+      margin: 0 auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .te-text-left,
+      .te-text-right {
+        gap: 0.6rem;
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+
+        .te-variety {
+          width: 100%;
+          box-sizing: border-box;
+
+          h3 {
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+          }
+
+          p {
+            font-size: 0.65rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            line-height: 1.4;
+          }
+        }
+      }
+
+      .te-image {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0.05rem;
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* Pantallas extremadamente pequeñas */
+@media (max-width: 360px) {
+  .nuestro-te-section {
+    padding: 0.6rem 0.1rem;
+    margin-top: 0.6rem;
+    overflow-x: hidden;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .te-header {
+      margin-bottom: 0.6rem;
+      text-align: center;
+      width: 100%;
+      max-width: 70%;
+
+      h1 {
+        font-size: 1.1rem;
+      }
+
+      h2 {
+        font-size: 0.7rem;
+      }
+    }
+
+    .te-content {
+      gap: 0.6rem;
+      padding: 0;
+      max-width: 70%;
+      width: 100%;
+      margin: 0 auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .te-text-left,
+      .te-text-right {
+        gap: 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+
+        .te-variety {
+          width: 100%;
+          box-sizing: border-box;
+
+          h3 {
+            font-size: 0.7rem;
+            margin-bottom: 0.4rem;
+          }
+
+          p {
+            font-size: 0.6rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            line-height: 1.3;
+          }
+        }
+      }
+
+      .te-image {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0.02rem;
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
         }
       }
     }
