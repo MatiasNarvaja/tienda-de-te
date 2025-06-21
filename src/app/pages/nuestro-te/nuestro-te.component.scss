@@ -80,3 +80,47 @@
     }
   }
 }
+
+/* Tablet horizontal */
+@media (max-width: 1080px) {
+  .te-categories {
+    margin: 2rem 5% 0 5%;
+    gap: 2rem;
+  }
+}
+
+/* Tablet vertical */
+@media (max-width: 768px) {
+  .te-categories {
+    margin: 2rem 3% 0 3%;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* Mobil 1 */
+@media (max-width: 480px) {
+  .te-categories {
+    margin: 1.5rem 2% 0 2%;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobil 2 */
+@media (max-width: 375px) {
+  .te-categories {
+    margin: 1rem 1% 0 1%;
+    gap: 0.8rem;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 420px) {
+  .te-categories {
+    margin: 1rem auto;
+    max-width: 90%;
+    gap: 0.8rem;
+    grid-template-columns: 1fr;
+  }
+}
