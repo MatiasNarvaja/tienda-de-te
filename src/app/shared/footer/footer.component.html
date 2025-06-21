@@ -56,9 +56,8 @@
         @for (social of socialLinks; track social.label) {
           <a 
             class="social-link" 
-            [href]="social.url" 
-            target="_blank" 
-            rel="noopener noreferrer"
+            href="javascript:void(0)" 
+            (click)="showSocialDialog(social.label)"
             [title]="social.label">
             <span class="social-icon">{{ social.icon }}</span>
             <span class="social-label">{{ social.label }}</span>

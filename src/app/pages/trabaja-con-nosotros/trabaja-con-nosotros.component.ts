@@ -1,13 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
+import { CustomDialogService } from '../../shared/custom-dialog.service';
 
 @Component({
   selector: 'app-trabaja-con-nosotros',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule],
+  imports: [CommonModule],
   templateUrl: './trabaja-con-nosotros.component.html',
   styleUrl: './trabaja-con-nosotros.component.scss'
 })
@@ -37,8 +35,8 @@ export class TrabajaConNosotrosComponent {
     mensaje: false
   };
   
-  constructor(private dialog: MatDialog) {
-    console.log('Componente TrabajaConNosotros inicializado');
+  constructor() {
+    // Componente inicializado
   }
 
   // Método para validar que solo se ingresen números en el teléfono
@@ -125,11 +123,8 @@ export class TrabajaConNosotrosComponent {
   }
 
   onSubmit() {
-    console.log('=== MÉTODO ONSUBMIT EJECUTADO ===');
-    
     // Verificar que el formulario esté completo antes de enviar
     if (!this.isFormComplete()) {
-      console.log('Formulario incompleto, no se puede enviar');
       return;
     }
     
@@ -142,21 +137,12 @@ export class TrabajaConNosotrosComponent {
       // Limpiar el formulario
       this.resetForm();
       
-      // Mostrar dialog de Material
-      this.dialog.open(SuccessDialogComponent, {
-        width: '400px',
-        disableClose: true, // No se puede cerrar haciendo clic fuera
-        data: {
-          title: '¡Envío Exitoso!',
-          message: 'El mensaje fue enviado de manera exitosa',
-          subtitle: 'Nos pondremos en contacto contigo pronto'
-        }
-      });
+      // Mostrar diálogo personalizado
+      this.showCustomDialog();
     }, 1500);
   }
 
   private resetForm() {
-    console.log('Intentando limpiar formulario');
     if (this.form && this.form.nativeElement) {
       this.form.nativeElement.reset();
       
@@ -169,10 +155,15 @@ export class TrabajaConNosotrosComponent {
       Object.keys(this.formData).forEach(key => {
         this.formData[key as keyof typeof this.formData] = '';
       });
-      
-      console.log('Formulario limpiado exitosamente');
-    } else {
-      console.log('No se pudo encontrar el formulario');
     }
+  }
+
+  private showCustomDialog() {
+    CustomDialogService.openDialog({
+      title: '¡Envío Exitoso!',
+      message: 'El mensaje fue enviado de manera exitosa',
+      subtitle: 'Nos pondremos en contacto contigo pronto',
+      buttonText: 'Cerrar'
+    });
   }
 }

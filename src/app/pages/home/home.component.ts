@@ -1,13 +1,11 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
 import { CafeteriaSectionComponent } from '../../shared/cafeteria-section/cafeteria-section.component';
-import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CafeteriaSectionComponent, SuccessDialogComponent],
+  imports: [CommonModule, CafeteriaSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
