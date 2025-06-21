@@ -1,11 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
+import { CustomDialogService } from '../../shared/custom-dialog.service';
 
 @Component({
   selector: 'app-trabaja-con-nosotros',
   standalone: true,
-  imports: [CommonModule, MatButtonModule],
+  imports: [CommonModule],
   templateUrl: './trabaja-con-nosotros.component.html',
   styleUrl: './trabaja-con-nosotros.component.scss'
 })
@@ -36,7 +36,7 @@ export class TrabajaConNosotrosComponent {
   };
   
   constructor() {
-    console.log('Componente TrabajaConNosotros inicializado');
+    // Componente inicializado
   }
 
   // Método para validar que solo se ingresen números en el teléfono
@@ -123,11 +123,8 @@ export class TrabajaConNosotrosComponent {
   }
 
   onSubmit() {
-    console.log('=== MÉTODO ONSUBMIT EJECUTADO ===');
-    
     // Verificar que el formulario esté completo antes de enviar
     if (!this.isFormComplete()) {
-      console.log('Formulario incompleto, no se puede enviar');
       return;
     }
     
@@ -146,7 +143,6 @@ export class TrabajaConNosotrosComponent {
   }
 
   private resetForm() {
-    console.log('Intentando limpiar formulario');
     if (this.form && this.form.nativeElement) {
       this.form.nativeElement.reset();
       
@@ -159,66 +155,15 @@ export class TrabajaConNosotrosComponent {
       Object.keys(this.formData).forEach(key => {
         this.formData[key as keyof typeof this.formData] = '';
       });
-      
-      console.log('Formulario limpiado exitosamente');
-    } else {
-      console.log('No se pudo encontrar el formulario');
     }
   }
 
   private showCustomDialog() {
-    // Crear un elemento de overlay personalizado
-    const overlay = document.createElement('div');
-    overlay.className = 'custom-dialog-overlay';
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    `;
-
-    // Crear el contenido del diálogo
-    const dialog = document.createElement('div');
-    dialog.className = 'custom-dialog';
-    dialog.style.cssText = `
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 20px;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    `;
-
-    dialog.innerHTML = `
-      <h2 style="color: #c7a17a; font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 20px 0;">¡Envío Exitoso!</h2>
-      <p style="font-family: 'Oswald', sans-serif; font-size: 1.1rem; color: #2d2a2a; margin: 10px 0; font-weight: 400;">El mensaje fue enviado de manera exitosa</p>
-      <p style="font-size: 0.9rem; color: #888888; font-weight: 300; margin: 10px 0;">Nos pondremos en contacto contigo pronto</p>
-      <button style="font-family: 'Oswald', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 30px; background: #c7a17a; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px;">Cerrar</button>
-    `;
-
-    // Agregar evento para cerrar
-    const closeButton = dialog.querySelector('button');
-    const closeDialog = () => {
-      document.body.removeChild(overlay);
-    };
-
-    closeButton?.addEventListener('click', closeDialog);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        closeDialog();
-      }
+    CustomDialogService.openDialog({
+      title: '¡Envío Exitoso!',
+      message: 'El mensaje fue enviado de manera exitosa',
+      subtitle: 'Nos pondremos en contacto contigo pronto',
+      buttonText: 'Cerrar'
     });
-
-    overlay.appendChild(dialog);
-    document.body.appendChild(overlay);
   }
 }
