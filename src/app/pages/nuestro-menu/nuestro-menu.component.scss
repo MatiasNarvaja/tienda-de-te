@@ -259,7 +259,7 @@
 @media (max-width: 768px) {
   .main-image-container {
     height: 50vh;
-    margin-bottom: 0 !important; // Remove margin completely
+    margin-bottom: 2rem !important; // Add space between bagel and cakes section
   }
 
   .main-image-container .text-overlay {
