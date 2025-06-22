@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
 import { CafeteriaSectionComponent } from '../../shared/cafeteria-section/cafeteria-section.component';
+import { CustomDialogService } from '../../shared/custom-dialog.service';
 
 @Component({
   selector: 'app-nuestro-menu',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule, CafeteriaSectionComponent],
+  imports: [CommonModule, CafeteriaSectionComponent],
   templateUrl: './nuestro-menu.component.html',
   styleUrl: './nuestro-menu.component.scss'
 })
@@ -23,17 +21,14 @@ export class NuestroMenuComponent {
     'assets/images/nuestro-menu/cafeteria.jpg'
   ];
 
-  constructor(private dialog: MatDialog) {}
+  constructor() {}
 
   showMenuDialog() {
-    this.dialog.open(SuccessDialogComponent, {
-      width: '400px',
-      disableClose: true,
-      data: {
-        title: '¡Próximamente!',
-        message: 'Estamos trabajando en crear nuestro menú',
-        subtitle: 'Pronto estará disponible'
-      }
+    CustomDialogService.openDialog({
+      title: '¡Próximamente!',
+      message: 'Estamos trabajando en crear nuestro menú',
+      subtitle: 'Pronto estará disponible',
+      buttonText: 'Cerrar'
     });
   }
 }

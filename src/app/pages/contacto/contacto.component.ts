@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
+import { CustomDialogService } from '../../shared/custom-dialog.service';
 
 @Component({
   selector: 'app-contacto',
@@ -15,10 +14,7 @@ export class ContactoComponent {
   contactForm: FormGroup;
   isSubmitting = false;
 
-  constructor(
-    private fb: FormBuilder,
-    private dialog: MatDialog
-  ) {
+  constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -43,13 +39,10 @@ export class ContactoComponent {
   }
 
   private showSuccessDialog() {
-    const dialogRef = this.dialog.open(SuccessDialogComponent, {
-      width: '400px',
-      data: {
-        title: '¡Mensaje enviado!',
-        message: 'Gracias por contactarnos. Nos pondremos en contacto contigo pronto.',
-        icon: 'check_circle'
-      }
+    CustomDialogService.openDialog({
+      title: '¡Mensaje enviado!',
+      message: 'Gracias por contactarnos. Nos pondremos en contacto contigo pronto.',
+      buttonText: 'Cerrar'
     });
   }
 

@@ -1,13 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { SuccessDialogComponent } from '../../shared/success-dialog/success-dialog.component';
+import { CustomDialogService } from '../../shared/custom-dialog.service';
 
 @Component({
   selector: 'app-franquicias',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule],
+  imports: [CommonModule],
   templateUrl: './franquicias.component.html',
   styleUrl: './franquicias.component.scss'
 })
@@ -35,7 +33,7 @@ export class FranquiciasComponent {
     zona: false
   };
 
-  constructor(private dialog: MatDialog) {}
+  constructor() {}
 
   // Método para validar que solo se ingresen números en el teléfono
   onTelefonoInput(event: any) {
@@ -104,15 +102,7 @@ export class FranquiciasComponent {
     setTimeout(() => {
       this.isSubmitting = false;
       this.resetForm();
-      this.dialog.open(SuccessDialogComponent, {
-        width: '400px',
-        disableClose: true,
-        data: {
-          title: '¡Envío Exitoso!',
-          message: 'El mensaje fue enviado de manera exitosa',
-          subtitle: 'Nos pondremos en contacto contigo pronto'
-        }
-      });
+      this.showCustomDialog();
     }, 1500);
   }
 
@@ -126,5 +116,14 @@ export class FranquiciasComponent {
         this.formData[key as keyof typeof this.formData] = '';
       });
     }
+  }
+
+  private showCustomDialog() {
+    CustomDialogService.openDialog({
+      title: '¡Envío Exitoso!',
+      message: 'El mensaje fue enviado de manera exitosa',
+      subtitle: 'Nos pondremos en contacto contigo pronto',
+      buttonText: 'Cerrar'
+    });
   }
 }

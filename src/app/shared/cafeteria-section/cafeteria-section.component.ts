@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
-import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
+import { CustomDialogService } from '../custom-dialog.service';
 
 @Component({
   selector: 'app-cafeteria-section',
@@ -13,16 +12,14 @@ import { SuccessDialogComponent } from '../success-dialog/success-dialog.compone
 export class CafeteriaSectionComponent {
   cafeteriaImage = 'assets/images/nuestro-menu/cafeteria.jpg';
   
-  constructor(private dialog: MatDialog) {}
+  constructor() {}
   
   onLocationClick() {
-    this.dialog.open(SuccessDialogComponent, {
-      width: '400px',
-      data: {
-        title: 'Funcionalidad en Desarrollo',
-        message: 'Estamos trabajando en esta funcionalidad.',
-        subtitle: 'Próximamente podrás encontrar todas nuestras ubicaciones aquí.'
-      }
+    CustomDialogService.openDialog({
+      title: 'Funcionalidad en Desarrollo',
+      message: 'Estamos trabajando en esta funcionalidad.',
+      subtitle: 'Próximamente podrás encontrar todas nuestras ubicaciones aquí.',
+      buttonText: 'Cerrar'
     });
   }
 } 
