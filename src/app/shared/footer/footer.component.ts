@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CustomDialogService } from '../custom-dialog.service';
 
 @Component({
   selector: 'app-footer',
@@ -27,4 +28,15 @@ export class FooterComponent {
     { icon: '📘', label: 'Facebook', url: '#' },
     { icon: '🐦', label: 'Twitter', url: '#' }
   ];
+
+  constructor() {}
+
+  showSocialDialog(socialName: string) {
+    CustomDialogService.openDialog({
+      title: '¡Próximamente!',
+      message: 'Estamos trabajando en nuestras redes sociales',
+      subtitle: `${socialName} estará disponible pronto`,
+      buttonText: 'Cerrar'
+    });
+  }
 } 
